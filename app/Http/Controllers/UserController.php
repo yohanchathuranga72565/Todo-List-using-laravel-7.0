@@ -30,11 +30,12 @@ class UserController extends Controller
 
         // $data = [
         //     "name"=>'Navodya',
-        //     "email" => "navodya@gmail.com",
-        //     "password" => bcrypt('abcd')
+        //     "email" => "navodya11@gmail.com",
+        //     "password" => 'abcd'
         // ];
         // User::create($data);
         $user = User::all();
-        return view('home')->with('users', $user);
+        return $user;
+        return view('home');
     }
 }
