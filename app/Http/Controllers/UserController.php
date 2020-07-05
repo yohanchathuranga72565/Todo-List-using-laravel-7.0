@@ -24,9 +24,17 @@ class UserController extends Controller
         // $user = User::all();
         // return $user;
 
-        User::where('id', 3)->update(['name'=>'chathuranga']);
+        // User::where('id', 3)->update(['name'=>'chathuranga']);
 
-        User::where('id', 2)->delete();
-        return view('home');
+        // User::where('id', 2)->delete();
+
+        // $data = [
+        //     "name"=>'Navodya',
+        //     "email" => "navodya@gmail.com",
+        //     "password" => bcrypt('abcd')
+        // ];
+        // User::create($data);
+        $user = User::all();
+        return view('home')->with('users', $user);
     }
 }
