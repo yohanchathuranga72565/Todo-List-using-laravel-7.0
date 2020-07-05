@@ -37,11 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function setpasswordAttribute($password){
-        $this->attributes['password'] = bcrypt($password);
-    }
+    // public function setpasswordAttribute($password){
+    //     $this->attributes['password'] = bcrypt($password);
+    // }
 
-    public function getNameAttribute($name){
-        return 'My name is '.ucfirst($name);
-    }
+    // public function getNameAttribute($name){
+    //     return 'My name is '.ucfirst($name);
+    // }
 }
