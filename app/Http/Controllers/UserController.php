@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,6 +13,20 @@ class UserController extends Controller
         // DB::delete('delete from users where id=1');
         // $users = DB::select('SELECT * FROM users');
         // return $users;
+
+
+        // $user = new User();
+        // $user->name = "Yohan";
+        // $user->email = "yohan@gmail.com";
+        // $user->password = bcrypt("abcd");
+        // $user->save();
+
+        // $user = User::all();
+        // return $user;
+
+        User::where('id', 3)->update(['name'=>'chathuranga']);
+
+        User::where('id', 2)->delete();
         return view('home');
     }
 }
