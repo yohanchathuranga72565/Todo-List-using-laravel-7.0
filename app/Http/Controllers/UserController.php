@@ -7,6 +7,16 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    public function uploadAvatar(Request $request){
+        if($request->hasFile('image')){
+            $filename = $request->image->getClientOriginalName();
+            $request->image->storeAs('images',$filename,'public');
+            User::where('id',1)->update(['avatar'=>$filename]);
+            return redirect()->back();
+        }
+        // 
+        return "uploaded success..";
+    }
     public function index(){
         // DB::insert('insert into users (name, email, password) values (?, ?, ?)', ["yohan", 'chathunavo96@gmail.com', "abcd"]);
         // DB::update('update users set name=? where id=1', ['chathuranga']);
