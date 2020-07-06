@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
                 <div class="card-body">
+                    
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -14,13 +15,24 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    @if(session()->has('message'))
+                        <div class="alert alert-success">
+                            {{session()->get('message')}}
+                            {{-- {{session()->forget('message')}} --}}
+                        </div>
+                    @elseif(session()->has('error'))
+                        <div class="alert alert-danger">
+                            {{session()->get('error')}}
+                            {{-- {{session()->forget('error')}} --}}
+                        </div>
+                    @endif
                 </div>
 
                 <div class="card-body">
                     <form action="/upload" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="file" name="image"/>
-                        
+
                         <input type="submit" value="Upload"/>
                     </form>
                 </div>
