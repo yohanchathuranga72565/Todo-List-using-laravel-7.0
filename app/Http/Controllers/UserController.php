@@ -4,19 +4,19 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
     public function uploadAvatar(Request $request){
         if($request->hasFile('image')){
-            $filename = $request->image->getClientOriginalName();
-            $request->image->storeAs('images',$filename,'public');
-            auth()->user()->update(['avatar'=>$filename]);
-            return redirect()->back();
+            User::uploadAvatar($request->image);
+            return redirect()->back(); //success msg
         }
+        return redirect()->back(); //error msg
         // 
-        return "uploaded success..";
     }
+    
     public function index(){
         // DB::insert('insert into users (name, email, password) values (?, ?, ?)', ["yohan", 'chathunavo96@gmail.com', "abcd"]);
         // DB::update('update users set name=? where id=1', ['chathuranga']);
