@@ -15,17 +15,10 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    @if(session()->has('message'))
-                        <div class="alert alert-success">
-                            {{session()->get('message')}}
-                            {{-- {{session()->forget('message')}} --}}
-                        </div>
-                    @elseif(session()->has('error'))
-                        <div class="alert alert-danger">
-                            {{session()->get('error')}}
-                            {{-- {{session()->forget('error')}} --}}
-                        </div>
-                    @endif
+                    {{-- @include('layouts.flash') --}}
+                    <x-alert>
+                        <p>Here is the response from image upload</p>
+                    </x-alert>
                 </div>
 
                 <div class="card-body">
