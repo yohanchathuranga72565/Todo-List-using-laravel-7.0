@@ -13,7 +13,7 @@ use App\Todo;
 class TodoController extends Controller
 {
     public function index(){
-        $todos = Todo::all();
+        $todos = Todo::orderBy('completed')->get();
         return view('todos.index',compact('todos'));
     }
 

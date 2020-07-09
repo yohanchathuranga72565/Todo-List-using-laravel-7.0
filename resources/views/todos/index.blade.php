@@ -9,9 +9,22 @@
         <ul class="my-5">
             <x-alert />
             @foreach($todos as $todo)
-                <li class="flex justify-center py-2">
-                    <p>{{$todo->title}}</p>
-                    <a href="/todos/{{$todo->id}}/edit" class="mx-5 py-1 px-1 rounded bg-orange-400 text-white cursor-pointer">Edit</a>
+                <li class="flex justify-between p-2">
+                    @if($todo->completed)
+                        <p class="line-through">{{$todo->title}}</p>
+                    @else
+                        <p>{{$todo->title}}</p>
+                    @endif
+                   
+                    <div> 
+                        <a href="/todos/{{$todo->id}}/edit" class="cursor-pointer"><span class="fas fa-edit text-orange-400 px-2"></span></a>
+                        @if($todo->completed)   
+                            <span class="fas fa-check text-green-400 px-2"></span>
+                        @else
+                            <span class="fas fa-check text-gray-300 cursor-pointer px-2"></span>
+                        @endif
+                    </div>
+                    
                 </li>
             @endforeach
         </ul>
