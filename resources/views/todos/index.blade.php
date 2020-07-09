@@ -1,7 +1,7 @@
 
     @extends('todos.layout')
     @section('content') 
-        <div class="flex justify-center">
+        <div class="flex justify-center border-b pb-4">
             <h1 class="text-2xl">All Your Todos</h1>
             <a href="todos/create" class="mx-5 py-1 px-1 rounded bg-blue-400 text-white cursor-pointer">Create New</a>
         </div>

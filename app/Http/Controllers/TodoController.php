@@ -26,7 +26,7 @@ class TodoController extends Controller
         return view('todos.edit',compact('todo'));
     }
 
-    public function update(Request $request,Todo $todo){
+    public function update(TodoCreateRequest $request,Todo $todo){
         $todo->update(['title'=>$request->title]);
         return redirect(route('todo.index'))->with('message','Updated!');
     }
