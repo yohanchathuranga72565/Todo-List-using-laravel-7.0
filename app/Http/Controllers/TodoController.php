@@ -31,6 +31,11 @@ class TodoController extends Controller
         return redirect(route('todo.index'))->with('message','Updated!');
     }
 
+    public function complete(Todo $todo){
+        $todo->update(['completed'=> true]);
+        return redirect()->back()->with('message','Task marked as completed!');
+    }
+
     public function store(TodoCreateRequest $request){
         // $request->validate([
         //     'title'=>'required|max:255'
