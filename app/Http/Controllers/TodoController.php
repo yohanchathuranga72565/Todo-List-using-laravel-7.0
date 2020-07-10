@@ -12,6 +12,10 @@ use App\Todo;
 
 class TodoController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except('index');
+    }
+
     public function index(){
         $todos = Todo::orderBy('completed')->get();
         return view('todos.index',compact('todos'));
