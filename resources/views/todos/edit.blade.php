@@ -9,5 +9,5 @@
         <input type="submit" value = "Update" class="p-2 bg-white rounded border"/>
     </form>
 
-    <a href="/todos" class="my-5 py-1 px-1 rounded bg-white-400 border cursor-pointer">Back</a>
+    <a href="{{route('todo.index')}}" class="my-5 py-1 px-1 rounded bg-white-400 border cursor-pointer">Back</a>
 @endsection
