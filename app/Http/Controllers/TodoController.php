@@ -51,6 +51,10 @@ class TodoController extends Controller
         return redirect()->back()->with('message','Task deleted!');
     }
 
+    public function show(Todo $todo){
+        return view('todos.show',compact('todo'));
+    }
+
     public function store(TodoCreateRequest $request){
         // $request->validate([
         //     'title'=>'required|max:255'
