@@ -8,7 +8,8 @@
        
         <ul class="my-5">
             <x-alert />
-            @foreach($todos as $todo)
+            
+            @forelse($todos as $todo)
                 <li class="flex justify-between p-2">
                     @include('todos.complete-button')
                     @if($todo->completed)
@@ -26,7 +27,9 @@
                         </form>  
                     </div>        
                 </li>
-            @endforeach
+            @empty
+                <p>No task available, Create one.</p>
+            @endforelse
         </ul>
     @endsection
     
