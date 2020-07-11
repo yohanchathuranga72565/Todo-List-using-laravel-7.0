@@ -19,6 +19,7 @@
                     <h2 class="text-lg pb-4">Add Steps for tsks</h2>
                     <span class="fas fa-plus px-2 py-2 cursor-pointer"></span>
                 </div>
+                
                 <input type="text" name="step" class="p-2 rounded border" placeholder="Describe step"/>
             </div>
             <div class="py-1">
@@ -26,5 +27,6 @@
             </div>
             
         </form>
+        @livewire('counter')
         @endsection
     
