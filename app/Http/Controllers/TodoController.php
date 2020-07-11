@@ -74,7 +74,13 @@ class TodoController extends Controller
         //     return redirect()->back()->withErrors($validator)->withInput();
         // }
         // dd(auth()->user()->todos());
-        auth()->user()->todos()->create($request->all());
+        $todo = auth()->user()->todos()->create($request->all());
+        if($request->step){
+            foreach($request->step as $step){
+                $todo->steps()->create(['name'=>$step]);
+            }
+        }
+        
         // Todo::create($request->all());
         return redirect(route('todo.index'))->with('message','Todo created successfully.');
     }
