@@ -32,7 +32,7 @@ class TodoController extends Controller
     }
 
     public function update(TodoCreateRequest $request,Todo $todo){
-        $todo->update(['title'=>$request->title]);
+        $todo->update(['title'=>$request->title, 'description'=>$request->description]);
         return redirect(route('todo.index'))->with('message','Updated!');
     }
 

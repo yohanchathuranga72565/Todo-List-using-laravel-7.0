@@ -25,6 +25,7 @@ class TodoCreateRequest extends FormRequest
     {
         return [
             'title'=>'required|max:255',
+            'description'=>'required',
         ];
     }
 
@@ -32,6 +33,7 @@ class TodoCreateRequest extends FormRequest
     {
         return [
             'title.required' => 'Please type any value',
+            'description.required' => 'Please type any value',
         ];
     }
 }
